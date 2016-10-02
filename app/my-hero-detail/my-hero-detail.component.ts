@@ -4,9 +4,9 @@ import { Hero } from '../shared/classes/hero';
 
 @Component({
 	selector: 'my-hero-detail',
-	templateUrl: './app/hero-detail/hero-detail.component.html'
+	templateUrl: './app/my-hero-detail/my-hero-detail.component.html'
 })
-export class HeroDetailComponent {
+export class MyHeroDetailComponent {
 	@Input() hero: Hero;
 
 	constructor() {}

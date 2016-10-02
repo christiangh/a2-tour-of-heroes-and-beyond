@@ -4,7 +4,8 @@ import { FormsModule }   from '@angular/forms'
 
 import { AppComponent }	from './app.component';
 
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MyHerosComponent } from './my-heroes/my-heroes.component';
+import { MyHeroDetailComponent } from './my-hero-detail/my-hero-detail.component';
 
 import { HeroService } from './shared/services/hero.service';
 	
@@ -16,7 +17,8 @@ import { HeroService } from './shared/services/hero.service';
   ],
   declarations: [
   	AppComponent,
-  	HeroDetailComponent
+    MyHerosComponent,
+  	MyHeroDetailComponent
   ],
   bootstrap: [AppComponent]
 })
