@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Hero } from "../shared/classes/hero";
 
 import { HeroService } from '../shared/services/hero.service';
 
 @Component({
-  selector: 'my-heroes',
-  templateUrl: './app/my-heroes/my-heroes.component.html',
-  styleUrls: ['./app/my-heroes/my-heroes.component.css'],
-  providers: [HeroService]
+	moduleId: module.id,
+ 	selector: 'my-heroes',
+  	templateUrl: './my-heroes.component.html',
+  	styleUrls: ['./my-heroes.component.css']
 })
-export class MyHerosComponent implements OnInit{
+export class MyHeroesComponent implements OnInit{
 	heroes: Hero[];
 	selectedHero: Hero;
 
-  	constructor(private heroService: HeroService) {}
+  	constructor(
+  		private router: Router,
+  		private heroService: HeroService
+  	) {}
 
 	ngOnInit(): void {
 		this.getHeroes();
@@ -28,5 +32,9 @@ export class MyHerosComponent implements OnInit{
 	getHeroes(): void {
 	  	//this.heroService.getHeroes().then((heroes) => this.heroes = heroes);
 		this.heroService.getHeroesSlowly().then((heroes) => this.heroes = heroes);
+  	}
+
+  	gotoDetail(): void {
+    	this.router.navigate(['/detail', this.selectedHero.id]);
   	}
 }
