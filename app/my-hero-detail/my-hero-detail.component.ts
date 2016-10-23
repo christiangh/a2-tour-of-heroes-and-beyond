@@ -14,6 +14,8 @@ import { Hero } from '../shared/classes/hero';
 	styleUrls: ['./my-hero-detail.component.css']
 })
 export class MyHeroDetailComponent implements OnInit {
+	hero: Hero;
+
 	constructor(
 		private heroService: HeroService,
 		private route: ActivatedRoute,
@@ -30,5 +32,10 @@ export class MyHeroDetailComponent implements OnInit {
 
 	goBack(): void {
 		this.location.back();
+	}
+
+	save(): void {
+		this.heroService.update(this.hero)
+	    	.then(() => this.goBack());
 	}
 }

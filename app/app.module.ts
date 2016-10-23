@@ -2,6 +2,11 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
+import { HttpModule }    from '@angular/http';
+
+/* Imports for loading & configuring the in-memory web api */
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api/in-memory-web-api.module';
+import { InMemoryDataService }  from './in-memory-data.service';
 
 /** Modules **/
 import { AppRoutingModule } from './app-routing.module';
@@ -20,11 +25,13 @@ import { HeroService } from './shared/services/hero.service';
   imports:      [
   	BrowserModule,
   	FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   declarations: [
   	AppComponent,
-    DashboardComponent
+    DashboardComponent,
     MyHeroesComponent,
   	MyHeroDetailComponent
   ],
