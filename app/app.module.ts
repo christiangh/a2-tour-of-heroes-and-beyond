@@ -16,9 +16,13 @@ import { AppComponent }  from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyHeroesComponent } from './my-heroes/my-heroes.component';
 import { MyHeroDetailComponent } from './my-hero-detail/my-hero-detail.component';
+import { HeroSearchComponent } from './my-hero-search/my-hero-search.component';
 
 /** Services **/
 import { HeroService } from './shared/services/hero.service';
+
+/** Imports **/
+import './shared/imports/rxjs-extensions';
 	
 
 @NgModule({
@@ -33,7 +37,8 @@ import { HeroService } from './shared/services/hero.service';
   	AppComponent,
     DashboardComponent,
     MyHeroesComponent,
-  	MyHeroDetailComponent
+  	MyHeroDetailComponent,
+    HeroSearchComponent
   ],
   providers: [
     HeroService
